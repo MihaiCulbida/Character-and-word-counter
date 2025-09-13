@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Counter</title>
+<style>
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #caeaff79;
+}
+
+.box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 360px;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    resize: none;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:focus {
+    border-color: #38bff86b;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+.info {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #4b5563;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <textarea id="text" placeholder="Type here..." oninput="count()"></textarea>
+    <div class="info">
+        Chars: <span id="chars">0</span> | Words: <span id="words">0</span>
+    </div>
+</div>
+
+<script>
+
+function count() {
+    const val = document.getElementById('text').value;
+    document.getElementById('chars').textContent = val.length;
+    document.getElementById('words').textContent = val.trim() ? val.trim().split(/\s+/).length : 0;
+}
+
+</script>
+</body>
+</html>
